@@ -1,0 +1,224 @@
+# ============================================================================
+# Pyvisio Global Configuration
+# ============================================================================
+# All visualization settings can be adjusted here.
+# Uncomment any setting to override defaults.
+
+# ============================================================================
+# GLOBAL MULTIPLIERS
+# ============================================================================
+# Scale all nodes/edges uniformly across all presets
+
+# Node size multiplier (0.5 = 50% smaller, 1.0 = default, 2.0 = 200% larger)
+node_size_multiplier: 0.7
+# Edge width multiplier (0.5 = 50% thinner, 1.0 = default, 1.5 = 50% thicker)
+edge_width_multiplier: 0.7
+
+# ============================================================================
+# HOSTNAME LABEL SETTINGS
+# ============================================================================
+# Control how hostnames are displayed in node labels (when --resolve-hostnames is used)
+
+hostname_labels:
+  # Show hostnames in node labels (requires --resolve-hostnames flag)
+  show_in_labels: true           # Default: false (hostnames only in tooltips)
+  
+  # Use hostname instead of IP as primary label
+  prefer_hostname: true          # Default: false (show IP as label)
+  
+  # Show both IP and hostname (IP on first line, hostname on second)
+  show_both: false                # Default: false (show only one)
+
+# ============================================================================
+# DEFAULT FILE PATHS
+# ============================================================================
+
+default_input: sophos_data.csv
+default_risk_report: high_risk_attackers.csv
+
+# ============================================================================
+# CANVAS/VISUALIZATION SIZE
+# ============================================================================
+# Override canvas dimensions for all presets
+
+canvas:
+  height: "1280px"      # Canvas height (px, %, vh)
+  width: "100%"        # Canvas width (px, %, vw)
+
+# ============================================================================
+# THEME SETTINGS
+# ============================================================================
+# Override colors and visual theme for all presets
+
+theme:
+  bgcolor: "#ffffff"   # Background color (hex)
+  font_color: "black"  # Text color
+  # height: "900px"    # Uncomment to override canvas height here
+  # width: "100%"      # Uncomment to override canvas width here
+
+# ============================================================================
+# PHYSICS SETTINGS
+# ============================================================================
+# Control graph layout physics (spacing, gravity, spring behavior)
+
+physics:
+  # Gravitational constant (more negative = more spacing between nodes)
+  gravitational_constant: -20000  # Default: -20000, Range: -10000 to -80000
+  
+  # Central gravity (pulls nodes toward center)
+  central_gravity: 0.8            # Default: 0.8, Range: 0.0 to 1.0
+  
+  # Spring length (desired edge length)
+  spring_length: 100              # Default: 100, Range: 50 to 300
+  
+  # Spring constant (edge stiffness)
+  spring_constant: 0.05           # Default: 0.05, Range: 0.01 to 0.2
+  
+  # Damping (stabilization speed)
+  damping: 0.3                    # Default: 0.3, Range: 0.1 to 1.0
+  
+  # Smooth edges (curved vs straight)
+  edge_smooth: true              # DISABLED: using straight edges (set to true for curved)
+  
+  # Edge smooth type (only applies if edge_smooth is true)
+  # Options: 'dynamic', 'continuous', 'discrete', 'diagonalCross', 'straightCross', 'horizontal', 'vertical', 'curvedCW', 'curvedCCW', 'cubicBezier'
+  edge_smooth_type: 'dynamic'     # Default: 'dynamic' (best for most cases)
+  
+  # Edge roundness (curvature amount, 0.0 = slight, 1.0 = extreme)
+  edge_roundness: 0.5              # Default: 0.5, Range: 0.0 to 1.0
+  
+  # Arrow scale factor
+  arrow_scale: 0.4                # Default: 0.4, Range: 0.1 to 1.0
+  
+  # Stabilization iterations (higher = more stable but slower)
+  stabilization_iterations: 40    # Default: 40, Range: 10 to 200
+
+# ============================================================================
+# NODE SETTINGS
+# ============================================================================
+# Global node appearance settings
+
+node_settings:
+  # Default node size ranges (applied before multiplier)
+  # default_size_range: [3, 15]
+  
+  # Node border width
+  # border_width: 2
+  
+  # Node shapes: 'dot', 'square', 'triangle', 'star'
+  # attacker_shape: 'dot'
+  # target_shape: 'dot'
+  
+  # Node colors (hex codes)
+  # attacker_color: '#bdc3c7'  # Gray for attackers
+  # target_color: '#3498db'    # Blue for targets
+
+# ============================================================================
+# EDGE SETTINGS  
+# ============================================================================
+# Global edge appearance settings
+
+edge_settings:
+  # Default edge width ranges (applied before multiplier)
+  # default_width_range: [1, 6]
+  
+  # Edge opacity
+  # opacity: 1.0
+  
+  # Edge color mode: 'gradient' or 'heatmap'
+  # color_mode: 'gradient'
+  
+  # Color thresholds for intensity gradient [low, high]
+  # gradient_thresholds: [0.2, 0.6]
+  
+  # Color thresholds for heatmap [low, med, high]
+  # heatmap_thresholds: [0.15, 0.4, 0.7]
+  
+  # Scale arrows with edge width (arrows get bigger on thicker edges)
+  scale_arrows_with_edges: true   # Enable/disable arrow scaling
+  base_arrow_scale: 0.1           # Base arrow size for scaling
+
+# ============================================================================
+# COLOR GRADIENTS
+# ============================================================================
+# Customize color schemes
+
+colors:
+  # Gradient colors (green -> yellow -> orange -> red)
+  # gradient:
+  #   low: '#2ecc71'      # Green (safe/low)
+  #   medium: '#f39c12'   # Orange (warning)
+  #   high: '#e74c3c'     # Red (critical)
+  
+  # Heatmap colors
+  # heatmap:
+  #   low: '#2ecc71'      # Soft green
+  #   medium_low: '#f1c40f'   # Yellow
+  #   medium_high: '#e67e22'  # Orange
+  #   high: '#e74c3c'     # Bright red
+
+# ============================================================================
+# PRESET-SPECIFIC OVERRIDES
+# ============================================================================
+# Override settings for individual presets
+# These override global settings above
+
+presets:
+  # Intensity preset overrides
+  # intensity:
+  #   node_size_range: [2, 10]
+  #   top_n: 500
+  #   canvas:
+  #     height: "1000px"
+  #   physics:
+  #     spring_length: 120
+  
+  # Heatmap preset overrides
+  # heatmap:
+  #   node_size_range: [2, 12]
+  #   target_size_range: [3, 13]
+  #   color_thresholds: [0.1, 0.3, 0.6]
+  #   physics:
+  #     gravitational_constant: -40000
+  #     spring_length: 180
+  
+  # Micro preset overrides
+  # micro:
+  #   node_size_range: [1, 6]
+  #   target_size_range: [4, 4]
+  #   canvas:
+  #     height: "1200px"
+  
+  # Balanced preset overrides
+  # balanced:
+  #   node_size_range: [2, 10]
+  #   physics:
+  #     gravitational_constant: -30000
+  #     spring_length: 150
+
+# ============================================================================
+# TIPS
+# ============================================================================
+# 
+# For smaller nodes:
+#   - Decrease node_size_multiplier (0.5 - 0.7)
+#   - Decrease node_size_range values
+# 
+# For more spacing:
+#   - Increase spring_length (150 - 250)
+#   - Decrease gravitational_constant (-40000 to -60000)
+# 
+# For larger canvas:
+#   - Increase canvas height ("1200px", "1500px")
+#   - Use viewport units ("100vh" for full height)
+# 
+# For different layouts:
+#   - Adjust central_gravity (higher = more centered)
+#   - Adjust damping (higher = faster stabilization)
+# 
+# To apply changes:
+#   1. Edit this file
+#   2. Re-run: python pyvisio.py --preset <preset_name>
+#   3. Refresh browser
+# 
+# ============================================================================
