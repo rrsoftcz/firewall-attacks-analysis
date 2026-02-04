@@ -1,4 +1,4 @@
-# Pyvis - Firewall Log Network Visualization
+# PyVis - Firewall Log Network Visualization
 
 A powerful yet simple CLI tool for visualizing firewall logs. Point it at your Sophos CSV exports and get beautiful, interactive network graphs that show you exactly who's attacking what. Perfect for security analysis, incident reports, and identifying patterns in your firewall data.
 
